@@ -1,7 +1,7 @@
 package main.kotlin.util
 
 import java.io.File
-const val INPUT_DIR = "src/main/resources/input/"
+const val INPUT_DIR = "src/main/resources/input."
 
 class InputReader {
 

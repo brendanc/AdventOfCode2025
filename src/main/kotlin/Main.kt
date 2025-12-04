@@ -25,15 +25,18 @@ fun main(args: Array<String>) {
         return
     }
 
-    when (taskNumber) {
-        1 -> {
-            val task = Task1()
-            when (partNumber) {
-                1 -> task.part1()
-                2 -> task.part2()
-                else -> println("Task 1 only has parts 1 and 2")
-            }
+    val resolver = TaskResolver()
+    val task = resolver.resolveTask(taskNumber)
+
+    try {
+        when (partNumber) {
+            1 -> task.part1()
+            2 -> task.part2()
+            else -> println("Task only has parts 1 and 2")
         }
-        else -> println("Task $taskNumber not yet implemented")
     }
+    catch (e: Exception) {
+        println(e)
+    }
+
 }
