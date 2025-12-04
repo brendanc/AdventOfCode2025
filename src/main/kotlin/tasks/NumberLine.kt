@@ -6,6 +6,7 @@ class NumberLine {
     var value: Int = 50
     val max = 99
     val min = 0
+    var timesPassedZero = 0
     fun moveNext(amount: Int)
     {
         var i=0
@@ -25,6 +26,10 @@ class NumberLine {
                 value=max
             }
 
+            if(value == 0)
+            {
+                timesPassedZero++
+            }
         }
     }
 }
