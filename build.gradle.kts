@@ -23,11 +23,22 @@ tasks.register<JavaExec>("runTask") {
     description = "Run a specific task (e.g., gradle runTask --args='1.1')"
     classpath = sourceSets["main"].runtimeClasspath
     mainClass.set("main.kotlin.MainKt")
+    // Use Java 17 or higher
     javaLauncher.set(javaToolchains.launcherFor {
         languageVersion.set(JavaLanguageVersion.of(17))
     })
 }
 
 kotlin {
-    jvmToolchain(17)
+    jvmToolchain {
+        languageVersion.set(JavaLanguageVersion.of(17))
+        // Accepts Java 17 or any higher version (e.g., 18, 19, 21)
+    }
+}
+
+java {
+    toolchain {
+        languageVersion.set(JavaLanguageVersion.of(17))
+        // Accepts Java 17 or any higher version (e.g., 18, 19, 21)
+    }
 }
